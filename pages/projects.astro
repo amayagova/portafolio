@@ -1,0 +1,80 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import Footer from "../components/Footer.astro";
+
+const projects = [
+  {
+    title: "CONSTRUTECH APP",
+    description: "Aplicación web construida con Nextjs y Turso. Panel de administración y diseño responsive.",
+    tags: ["Nextjs", "Turso","SQLite","Tailwind CSS","Shadcn"],
+    image: "/construtech.png",
+    url: "https://construtech-xi.vercel.app/",
+    github: "https://github.com/usuario/proyecto1",
+  },
+  {
+    title: "STOKIO APP",
+    description: "App de toma de inventario, trazabilidad de productos, cotizaciones y generación de reportes de ventas perdidas.",
+    tags: ["React","SQLite","Turso","Tailwind CSS"],
+    image: "/stokio.png",
+    url: "https://stokio-app-full.vercel.app/",
+    github: "https://github.com/usuario/proyecto2",
+  },
+  {
+    title: "Descargador de Archivos JSON y PDF",
+    description: "App de descarga de archivos de facturas JSON y PDF desde correo de Gmail.",
+    tags: ["Python", "SQLite","Customtkinter"],
+    image: "/descargador.png",
+    url: "https://example.com",
+    github: "https://github.com/usuario/proyecto3",
+  },
+  {
+    title: "Extension Dte",
+    description: "Herramienta para manejo de clientes y productos para plataforma de facturación electrónica de El Salvador.",
+    tags: ["Kotlin", "SQLite"],
+    image: "/dte.png",
+    url: "https://example.com",
+    github: "https://github.com/usuario/proyecto4",
+  },
+];
+---
+
+<Layout>
+  <Header />
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="page-title animate-on-scroll">Mis <span class="highlight">Proyectos</span></h1>
+        <div class="projects-grid stagger-children">
+          {projects.map((project) => (
+            <ProjectCard
+              title={project.title}
+              description={project.description}
+              tags={project.tags}
+              image={project.image}
+              url={project.url}
+              github={project.github}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+</style>

@@ -1,0 +1,154 @@
+---
+
+---
+
+<section class="hero">
+  <div class="container hero-layout">
+    <div class="hero-content">
+      <span class="hero-badge animate-on-scroll" data-delay="1">Desarrollador Web</span>
+      <h1 class="hero-title animate-on-scroll" data-delay="2">
+        Hola, soy <span class="typing-wrapper"><span class="highlight typing-name">HENRY AMAYA</span></span>
+      </h1>
+      <p class="hero-desc animate-on-scroll" data-delay="3">
+        Creo aplicaciones web modernas con tecnologías como Astro, React y Node.js.
+        Apasionado por el diseño limpio y el código eficiente.
+      </p>
+      <div class="hero-actions animate-on-scroll" data-delay="4">
+        <a href="/projects" class="btn btn-primary btn-glow">Ver Proyectos</a>
+        <a href="/about" class="btn btn-outline">Sobre mí</a>
+      </div>
+    </div>
+    <div class="hero-image animate-on-scroll" data-delay="3">
+      <div class="image-wrapper">
+        <img src="/perfil.png" alt="HENRY AMAYA" class="profile-img" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 4rem;
+  }
+
+  .hero-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+
+  .hero-content {
+    flex: 1;
+    max-width: 600px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  .typing-wrapper {
+    display: inline-block;
+  }
+
+  .typing-name {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--accent);
+    width: 0;
+    animation: typing 1.5s 0.8s steps(15) forwards, blink 0.8s 0.8s infinite;
+    vertical-align: bottom;
+  }
+
+  .hero-desc {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-glow {
+    animation: pulse 2s infinite;
+  }
+
+  .btn-glow:hover {
+    animation: none;
+  }
+
+  .hero-image {
+    flex-shrink: 0;
+  }
+
+  .image-wrapper {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.2);
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+
+  .image-wrapper:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 60px rgba(56, 189, 248, 0.3);
+  }
+
+  .profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    .typing-name {
+      white-space: normal;
+      border-right: none;
+      width: auto;
+      animation: none;
+    }
+    .hero-layout {
+      flex-direction: column-reverse;
+      gap: 2rem;
+      text-align: center;
+    }
+    .hero-content {
+      max-width: 100%;
+    }
+    .hero-actions {
+      justify-content: center;
+    }
+    .image-wrapper {
+      width: 200px;
+      height: 200px;
+    }
+  }
+</style>

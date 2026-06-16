@@ -1,0 +1,164 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout>
+  <Header />
+  <main>
+    <section class="section">
+      <div class="container about-content">
+        <h1 class="page-title animate-on-scroll">Sobre <span class="highlight">Mí</span></h1>
+        <div class="about-grid">
+          <div class="about-text">
+            <p class="animate-on-scroll" data-delay="1">
+              Soy un desarrollador apasionado por crear aplicaciones web y
+              herramientas multiplataforma. Trabajo con tecnologías como
+              React, Next.js, Astro, Tailwind CSS y Node.js en el frontend,
+              y Python, Kotlin y SQLite en el backend.
+            </p>
+            <p class="animate-on-scroll" data-delay="2">
+              Disfruto construir proyectos completos, desde apps web con
+              Next.js y Turso hasta herramientas de escritorio con Python
+              y extensiones en Kotlin. Siempre aprendiendo nuevas tecnologías
+              y buscando mejorar mis habilidades.
+            </p>
+            <h3 class="about-subtitle animate-on-scroll" data-delay="3">Experiencia</h3>
+            <div class="experience-item animate-on-scroll" data-delay="4">
+              <span class="exp-role">Desarrollador Frontend</span>
+              <span class="exp-company">Empresa XYZ</span>
+              <span class="exp-date">2024 - Presente</span>
+            </div>
+            <div class="experience-item animate-on-scroll" data-delay="5">
+              <span class="exp-role">Desarrollador Junior</span>
+              <span class="exp-company">Empresa ABC</span>
+              <span class="exp-date">2023 - 2024</span>
+            </div>
+          </div>
+          <div class="about-stats stagger-children">
+            <div class="stat-card">
+              <span class="stat-number">4</span>
+              <span class="stat-label">Proyectos</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">12+</span>
+              <span class="stat-label">Tecnologías</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">3</span>
+              <span class="stat-label">Lenguajes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-subtitle {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+  }
+
+  .experience-item {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .experience-item:last-child {
+    border-bottom: none;
+  }
+
+  .exp-role {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .exp-company {
+    color: var(--accent);
+    font-size: 0.9rem;
+  }
+
+  .exp-date {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: var(--accent);
+    box-shadow: 0 8px 30px rgba(56, 189, 248, 0.1);
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent);
+    transition: transform 0.3s;
+  }
+
+  .stat-card:hover .stat-number {
+    transform: scale(1.1);
+  }
+
+  .stat-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .about-stats {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
