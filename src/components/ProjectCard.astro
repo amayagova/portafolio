@@ -1,0 +1,217 @@
+---
+import { Icon } from "astro-icon/components";
+
+export interface Props {
+  title: string;
+  description: string;
+  tags: string[];
+  image?: string;
+  url?: string;
+  github?: string;
+}
+
+const tagIcons: Record<string, string> = {
+  Nextjs: "simple-icons:nextdotjs",
+  "Next.js": "simple-icons:nextdotjs",
+  Turso: "simple-icons:turso",
+  "Node.js": "simple-icons:nodedotjs",
+  Express: "simple-icons:express",
+  PostgreSQL: "simple-icons:postgresql",
+  React: "simple-icons:react",
+  "D3.js": "simple-icons:d3",
+  Stripe: "simple-icons:stripe",
+  MongoDB: "simple-icons:mongodb",
+  SQLite: "simple-icons:sqlite",
+  Python: "simple-icons:python",
+  Kotlin: "simple-icons:kotlin",
+  "Tailwind CSS": "simple-icons:tailwindcss",
+  Tailwind: "simple-icons:tailwindcss",
+  Shadcn: "simple-icons:shadcnui",
+  "Shadcn UI": "simple-icons:shadcnui",
+  Customtkinter: "simple-icons:python",
+  "React Native": "devicon:reactnative",
+  Expo: "simple-icons:expo",
+};
+
+const { title, description, tags, image, url, github } = Astro.props;
+---
+
+<article class="project-card animate-on-scroll">
+  {image && (
+    <a href={url || "#"} class="card-image-link" target={url ? "_blank" : undefined} rel={url ? "noopener noreferrer" : undefined}>
+      <img src={image} alt={title} class="card-image" loading="lazy" />
+    </a>
+  )}
+  <div class="card-content">
+    <h3 class="card-title">{title}</h3>
+    <p class="card-desc">{description}</p>
+    <div class="card-tags">
+      {tags.map((tag) => (
+        <span class="tag">
+          {tagIcons[tag] && <Icon name={tagIcons[tag]} class="tag-icon" />}
+          {tag}
+        </span>
+      ))}
+    </div>
+    <div class="card-links">
+      {url && (
+        <a href={url} target="_blank" rel="noopener noreferrer" class="card-link btn-link">
+          <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Demo
+        </a>
+      )}
+      {github && (
+        <a href={github} target="_blank" rel="noopener noreferrer" class="card-link btn-link btn-github">
+          <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          Código
+        </a>
+      )}
+    </div>
+  </div>
+</article>
+
+<style>
+  .project-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.3s;
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 12px 40px rgba(56, 189, 248, 0.1);
+    border-color: var(--accent);
+  }
+
+  .card-content {
+    padding: 1.75rem;
+  }
+
+  .card-image-link {
+    display: block;
+    overflow: hidden;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .project-card:hover .card-image {
+    transform: scale(1.08);
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    transition: color 0.3s;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-card:hover .card-title {
+    color: var(--accent);
+  }
+
+  .card-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+  }
+
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: rgba(56, 189, 248, 0.08);
+    color: var(--accent);
+    border: 1px solid transparent;
+    cursor: default;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .tag:hover {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: rgba(56, 189, 248, 0.3);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15);
+  }
+
+  .tag-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .tag:hover .tag-icon {
+    transform: scale(1.25) rotate(-8deg);
+  }
+
+  .card-links {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1.1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: rgba(56, 189, 248, 0.08);
+    color: var(--accent);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .btn-link:hover {
+    background: var(--accent);
+    color: #0f172a;
+    border-color: var(--accent);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.25);
+  }
+
+  .btn-github {
+    background: rgba(148, 163, 184, 0.08);
+    color: var(--text-muted);
+    border-color: rgba(148, 163, 184, 0.2);
+  }
+
+  .btn-github:hover {
+    background: var(--text-muted);
+    color: #0f172a;
+    border-color: var(--text-muted);
+    box-shadow: 0 6px 20px rgba(148, 163, 184, 0.25);
+  }
+
+  .link-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .btn-link:hover .link-icon {
+    transform: translateX(2px) scale(1.1);
+  }
+</style>
